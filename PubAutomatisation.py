@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 import requests
 from flask import Flask, render_template_string
 import pandas as pd
+import os
 
 
 #Pour changer les paramètres dans une url
@@ -175,5 +176,9 @@ def tableau():
 
     return render_template_string(html_template)
 
+#if __name__ == '__main__':
+#    app.run(debug=True)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Utilise le port donné par Render ou 5000 par défaut
+    app.run(host="0.0.0.0", port=port, debug=True)
