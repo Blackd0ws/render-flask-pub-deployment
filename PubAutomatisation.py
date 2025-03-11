@@ -39,6 +39,9 @@ def extract_cdata_urls_from_mediafiles(root):
     return urls
 
 def check_cdata_url(cdata_url, x, y):
+    if not cdata_url.endswith(".mp4"):
+        error_logs.append(f"Case({x},{y}): URL CDATA ne se termine pas par .mp4 ({cdata_url})")
+        return False
     try:
         cdata_response = requests.get(cdata_url, timeout=5)
         if cdata_response.status_code != 200:
