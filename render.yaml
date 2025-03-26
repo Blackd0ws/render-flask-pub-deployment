@@ -3,6 +3,6 @@ services:
     name: pub-auto
     env: php
     plan: free
-    buildCommand: ""
+    buildCommand: "composer install"
     startCommand: ""
     rootDir: public
